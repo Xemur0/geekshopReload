@@ -1,5 +1,8 @@
+from django.contrib.auth.decorators import user_passes_test
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
+
+
 from admins.forms import UserAdminRegisterForm, UserAdminProfileForm, CategoryAdminRegisterForm, \
     CategoryAdminProfileForm
 from geekshop.mixin import CustomDispatchMixin
@@ -10,9 +13,11 @@ from django.shortcuts import render
 # Create your views here.
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
-
+@user_passes_test(lambda u: u.is_superuser)
 def index(request):
-    return render(request, 'admins/admin.html')
+    return render(request,'admins/admin.html')
+
+
 
 
 class UserListView(ListView, CustomDispatchMixin):
