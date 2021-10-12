@@ -21,6 +21,7 @@
                     <div class="card-footer text-center">
 {#                                                                <a href="{% url 'baskets:basket' product.id %}" class="btn btn-outline-success">Отправить#}
 {#                                                                    в корзину</a>#}
+
                         <input type="button" name="{{ product.id }}"
 
                                 {% for basket in baskets %}
