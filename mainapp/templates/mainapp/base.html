@@ -42,7 +42,7 @@
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'users:profile' %}">User
+                        <a class="nav-link" href="{% url 'users:profile' %}">{{ user.username }}
                             <i class="fas fa-user-circle"></i>
                         </a>
                     </li>
@@ -75,6 +75,7 @@
     <!-- FontAwesome script -->
     <script src="{% static 'vendor/fontawesome/fontawesome-icons.js' %}" crossorigin="anonymous"></script>
     <script src="{% static 'js/baskets.js' %}"></script>
+    <script src="{% static 'js/product_add.js' %}"></script>
 </body>
 
 </html>
