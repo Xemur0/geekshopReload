@@ -18,8 +18,6 @@ def index(request):
     return render(request,'admins/admin.html')
 
 
-
-
 class UserListView(ListView, CustomDispatchMixin):
     model = User
     template_name = 'admins/admin-users-read.html'
