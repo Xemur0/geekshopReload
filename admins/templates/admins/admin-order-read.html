@@ -1,0 +1,89 @@
+{% extends 'admins/base.html' %}
+{% block content %}
+    <main>
+        <div class="container-fluid">
+            <h1 class="mt-4">Список заказов</h1>
+            <div class="card mb-4">
+                {#                <div class="card-header">#}
+                {#                    <i class="fas fa-table mr-1"></i>#}
+                {#                    Список заказов#}
+                {#                </div>#}
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th>Заказ</th>
+                                <th>Дата создания</th>
+                                <th>Дата обновления</th>
+                                <th>Статус</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for item in object_list %}
+                                {% if item.is_active %}
+                                    <tr>
+                                        <td class="td1 orders_list">{{ item.pk }}</td>
+                                        <td>{{ item.created|date:"Y-m-d H:i:s" }}</td>
+                                        <td>{{ item.updated|date:"Y-m-d H:i:s" }}</td>
+
+                                        <td>
+                                            <form>
+                                                <h6>Текущий статус: {{ item.get_status_display }}</h6>
+
+                                                <p><select>
+                                                    <option value="FM">Формируется</option>
+                                                    <option value="STP">Отправлено в обработку</option>
+                                                    <option value="PD">Оплачено</option>
+                                                    <option value="PRD">Обрабатывается</option>
+                                                    <option value="RDY">Готов к выдаче</option>
+                                                    <option value="CNC">Отмена заказа</option>
+
+                                                </select>
+
+                                            </form>
+
+                                        </td>
+
+                                        <td>
+                                            <a href="{% url 'orders:read' item.pk %}">
+                                                Посмотреть
+                                            </a>
+                                        </td>
+                                        <td>
+                                            {% if item.status == 'FM' %}
+                                                <a href="{% url 'orders:update' item.pk %}">
+                                                    Редактировать
+                                                </a>
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            {% if item.status == 'FM' or item.status == 'STP' %}
+                                                <a href="{% url 'orders:delete' item.pk %}">
+                                                    Удалить
+                                                </a>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="{% url 'orders:create' %}">
+                        <button class="btn btn-success">Создать заказ</button>
+                    </a>
+
+                        <button class="btn btn-success" type="submit" value="Сохранить">Сохранить</button>
+
+                </div>
+
+        </div>
+    </main>
+{% endblock %}
