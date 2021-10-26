@@ -1,0 +1,15 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: 
+ =?utf-8?b?0JTQu9GPINCw0LrRgtC40LLQsNGG0LjQuCDRg9GH0LXRgtC90L7QuSDQt9Cw0L8=?=
+ =?utf-8?b?0LjRgdC4IHRlc3RfbmlrbmlrINC/0YDQvtC50LTQuNGC0LUg0L/QviDRgdGB0Ys=?=
+ =?utf-8?b?0LvQutC1?=
+From: django
+To: test_niknik@mail.ru
+Date: Tue, 19 Oct 2021 14:59:12 -0000
+Message-ID: <163465555295.2368.13740291340251147714@DESKTOP-57AQT3G.HomeLAN>
+
+Для подтверждения учетной записи test_niknik на портале 
+ http://localhost:8000/users/verify/test_niknik@mail.ru/c8e88685130e6c43b4fdf33617c8149ab6404cfd/
+-------------------------------------------------------------------------------
