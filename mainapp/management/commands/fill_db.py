@@ -28,7 +28,7 @@ class Command(BaseCommand):
             new_category = ProductCategory(**cat)
             new_category.save()
 
-        products = load_from_json('mainapp/fixtures/product.json')
+        products = load_from_json('mainapp/fixtures/products.json')
 
         Product.objects.all().delete()
         for product in products:

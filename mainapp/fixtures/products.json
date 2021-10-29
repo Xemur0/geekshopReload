@@ -43,7 +43,7 @@
       "image": "product_images/Black-Nike-Heritage-backpack.png",
       "description": "Плотная ткань. Легкий материал.",
       "price": "2340.00",
-      "quantity": 90,
+      "quantity": 3,
       "category": 1
     }
   },
@@ -54,7 +54,7 @@
       "name": "Черные туфли на платформе с 3 парами люверсов Dr Martens 1461 Bex",
       "image": "product_images/Black-Dr-Martens-shoes.png",
       "description": "Гладкий кожаный верх. Натуральный материал.",
-      "price": "5000.00",
+      "price": "5.00",
       "quantity": 13590,
       "category": 1
     }
@@ -66,8 +66,8 @@
       "name": "Темно-синие широкие строгие брюки ASOS DESIGN",
       "image": "product_images/Dark-blue-wide-leg-ASOs-DESIGN-trousers.png",
       "description": "Легкая эластичная ткань сирсакер Фактурная ткань.",
-      "price": "4656.00",
-      "quantity": 7,
+      "price": "4.00",
+      "quantity": 3,
       "category": 1
     }
   }
