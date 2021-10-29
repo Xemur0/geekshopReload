@@ -13,6 +13,7 @@ import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+from django.conf import settings
 from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -200,6 +201,9 @@ SOCIAL_AUTH_PIPELINE= (
     'social_core.pipeline.user.user_details',
 
 )
+
+
+
 
 
 
