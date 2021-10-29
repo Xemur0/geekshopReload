@@ -3,25 +3,25 @@
 
         {% for product in products %}
 
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100">
-                    <a href="#">
-                        <img class="card-img-top" src="{{ product.image.url }}">
-                    </a>
-                    <div class="card-body">
-                        <h4 class="card-title">
-                            <a href="#">{{ product.name }}</a>
-                        </h4>
-                        <h5>{{ product.price }} руб.</h5>
-                        <p class="card-text">{{ product.description }}</p>
-                    </div>
-
-                    <div class="card-footer text-center">
-                                                                <a href="{% url 'baskets:basket' product.id %}" class="btn btn-outline-success">Отправить
-                                                                    в корзину</a>
-
+{#            <div class="col-lg-4 col-md-6 mb-4">#}
+{#                <div class="card h-100">#}
+{#                    <a href="#">#}
+{#                        <img class="card-img-top" src="{{ product.image.url }}">#}
+{#                    </a>#}
+{#                    <div class="card-body">#}
+{#                        <h4 class="card-title">#}
+{#                            <a href="#">{{ product.name }}</a>#}
+{#                        </h4>#}
+{#                        <h5>{{ product.price }} руб.</h5>#}
+{#                        <p class="card-text">{{ product.description }}</p>#}
+{#                    </div>#}
+{##}
+{#                    <div class="card-footer text-center">#}
+{#                                                                <a href="{% url 'baskets:basket' product.id %}" class="btn btn-outline-success">Отправить#}
+{#                                                                    в корзину</a>#}
+{##}
 {#                        <input type="button" name="{{ product.id }}"#}
-
+{##}
 {#                                {% for basket in baskets %}#}
 {#                                    {% if product.id == basket.product_id %}#}
 {#                               value="Удалить из корзины"#}
@@ -32,11 +32,11 @@
 {#                               value="Отправить в корзину"#}
 {#                               class="btn btn-outline-success"#}
 {#                                {% endif %}>#}
-
-
-                    </div>
-                </div>
-            </div>
+{##}
+{##}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
 
         {% endfor %}
 
