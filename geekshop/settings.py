@@ -158,7 +158,7 @@ LOGIN_URL = '/users/login/'
 LOGIN_REDIRECT_URL = '/'
 LOGIN_ERROR_URL = '/'
 
-DOMAIN_NAME = 'http://89.108.76.248:8000'
+DOMAIN_NAME = 'http://89.108.76.248'
 EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465
 EMAIL_HOST_USER = 'aleks.prfnk@yandex.ru'
