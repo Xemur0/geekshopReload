@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 
 
@@ -22,4 +23,4 @@ class Product(models.Model):
     category = models.ForeignKey(ProductCategory, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.name} ({self.category.name})"
+        return f'{self.name} | {self.category}'
