@@ -1,6 +1,7 @@
 import hashlib
 import random
 
+from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
 from django import forms
 
@@ -23,7 +24,7 @@ class UserLoginForm(AuthenticationForm):
 class UserRegisterForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ('username', 'email', 'first_name', 'last_name', 'password1', 'password2',)
+        fields = ['username', 'email', 'first_name', 'last_name', 'password1', 'password2',]
 
     def __init__(self, *args, **kwargs):
         super(UserRegisterForm, self).__init__(*args, **kwargs)
@@ -43,6 +44,13 @@ class UserRegisterForm(UserCreationForm):
         user.activation_key = hashlib.sha1((user.email + salt).encode('utf8')).hexdigest()
         user.save()
         return user
+
+    def clean(self):
+        user = super().clean()
+        if User.objects.filter(email=user.get('email')).exists():
+            raise forms.ValidationError('Email уже существует')
+        return user
+
 
 class UserProfileForm(UserChangeForm):
     image = forms.ImageField(widget=forms.FileInput(), required=False)
