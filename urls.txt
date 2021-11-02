@@ -1,5 +1,2 @@
-http://89.108.76.248/users/login/
-http://89.108.76.248/users/register/
-http://89.108.76.248
-http://89.108.76.248/products/
-http://89.108.76.248/products/category/2/
+http://89.108.76.248/users/login/ POST username=Xem&password=Intheend1
+
