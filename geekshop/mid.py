@@ -1,3 +1,4 @@
+
 class DisableCSRFMiddleware(object):
 
     def init(self, get_response):
