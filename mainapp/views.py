@@ -4,6 +4,7 @@ from django.shortcuts import render, get_object_or_404
 import os
 
 from django.template.loader import render_to_string
+from django.views.decorators.cache import cache_page
 from django.views.generic import DetailView
 
 from baskets.models import Basket
@@ -17,7 +18,7 @@ from django.core.cache import cache
 MODULE_DIR = os.path.dirname(__file__)
 
 # Create your views here.
-
+@cache_page(3600)
 def index(request):
     return render(request, 'mainapp/index.html')
 
