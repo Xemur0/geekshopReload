@@ -22,7 +22,13 @@ class LoginListView(LoginView, BaseClassContextMixin):
     template_name = 'users/login.html'
     form_class = UserLoginForm
     title = 'Geekshop - Авторизация'
-    # success_url = reverse_lazy('index')
+    success_url = reverse_lazy('index')
+
+    def get(self, request, *args, **kwargs):
+        auth_user = super(LoginListView, self).get(request, *args, **kwargs)
+        if request.user.is_authenticated:
+            return HttpResponseRedirect(self.success_url)
+        return auth_user
 
 
 class RegisterListView(FormView, BaseClassContextMixin):
