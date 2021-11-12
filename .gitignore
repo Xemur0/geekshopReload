@@ -1,4 +1,4 @@
 .idea
 pycache/
 db.sqlite3
-/media
+.env
