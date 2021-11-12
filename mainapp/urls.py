@@ -11,7 +11,7 @@ urlpatterns = [
    path('product_add/<int:product_id>/<str:wtd>/', mainapp.product_add, name='add_product'),
    path('page/<int:page_id>/', mainapp.products, name='page'),
    path('category/', mainapp.products, name='default_filter'),
-   path('detail/<int:pk>/', cache_page(3600)(mainapp.ProductDetail.as_view()), name='detail'),
+   path('detail/<int:pk>/', mainapp.ProductDetail.as_view(), name='detail'),
 
 
 ]
