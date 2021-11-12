@@ -18,7 +18,6 @@ from django.core.cache import cache
 MODULE_DIR = os.path.dirname(__file__)
 
 # Create your views here.
-@cache_page(3600)
 def index(request):
     return render(request, 'mainapp/index.html')
 
