@@ -64,7 +64,7 @@ def products(request, category_id=None, page_id=1):
     # products = Product.objects.filter(category_id=category_id).select_related('category') if category_id !=None \
     #     else Product.objects.all().select_related('category')
 
-    products = get_link_product()
+    products = get_link_product().filter(category_id=category_id)
 
     paginator = Paginator(products, per_page=3)
     try:
