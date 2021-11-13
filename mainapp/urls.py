@@ -14,4 +14,5 @@ urlpatterns = [
    path('detail/<int:pk>/', mainapp.ProductDetail.as_view(), name='detail'),
 
 
+
 ]
