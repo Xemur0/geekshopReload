@@ -19,21 +19,21 @@
                     </div>
 
                     <div class="card-footer text-center">
-{#                                                                <a href="{% url 'baskets:basket' product.id %}" class="btn btn-outline-success">Отправить#}
-{#                                                                    в корзину</a>#}
+                                                                <a href="{% url 'baskets:basket' product.id %}" class="btn btn-outline-success">Отправить
+                                                                    в корзину</a>
 
-                        <input type="button" name="{{ product.id }}"
+{#                        <input type="button" name="{{ product.id }}"#}
 
-                                {% for basket in baskets %}
-                                    {% if product.id == basket.product_id %}
-                               value="Удалить из корзины"
-                               class="btn btn-outline-danger"
-                                    {% endif %}
-                                {% endfor %}
-                                {% if not value %}
-                               value="Отправить в корзину"
-                               class="btn btn-outline-success"
-                                {% endif %}>
+{#                                {% for basket in baskets %}#}
+{#                                    {% if product.id == basket.product_id %}#}
+{#                               value="Удалить из корзины"#}
+{#                               class="btn btn-outline-danger"#}
+{#                                    {% endif %}#}
+{#                                {% endfor %}#}
+{#                                {% if not value %}#}
+{#                               value="Отправить в корзину"#}
+{#                               class="btn btn-outline-success"#}
+{#                                {% endif %}>#}
 
 
                     </div>
