@@ -25,8 +25,9 @@
                     <a href="{% url 'mainapp:default_filter' %}" class="btn btn-outline-secondary">Сброс фильтра</a>
 
                     {% for category in categories %}
+                        {% if category.is_active %}
                         <a href="{% url 'mainapp:category' category.id %}" class="list-group-item">{{ category }}</a>
-
+                        {% endif %}
                     {% endfor %}
 
 

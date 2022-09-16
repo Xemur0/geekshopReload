@@ -18,7 +18,6 @@ from django.core.cache import cache
 MODULE_DIR = os.path.dirname(__file__)
 
 # Create your views here.
-@cache_page(3600)
 def index(request):
     return render(request, 'mainapp/index.html')
 
@@ -39,7 +38,7 @@ def get_link_product():
         key = 'links_product'
         link_product = cache.get(key)
         if link_product is None:
-            link_product = Product.objects.all().select_related('category')
+            link_product = Product.objects.filter(is_active=True).select_related('category')
             cache.set(key, link_product)
         return link_product
     else:
@@ -60,14 +59,14 @@ def get_product(pk):
 
 
 @login_required
-def products(request, category_id=None, page_id=1):
+def products(request, page_id=1, *args, **kwargs):
 
     # products = Product.objects.filter(category_id=category_id).select_related('category') if category_id !=None \
     #     else Product.objects.all().select_related('category')
 
-    products = get_link_product()
+    products = get_link_product().filter(*args, **kwargs)
 
-    paginator = Paginator(products, per_page=3)
+    paginator = Paginator(products,per_page=3)
     try:
         products_paginator = paginator.page(page_id)
     except PageNotAnInteger:
