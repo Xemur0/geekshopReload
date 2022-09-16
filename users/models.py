@@ -12,7 +12,7 @@ from django.utils.timezone import now
 NULL_INSTALL = {'null':True,'blank':True}
 
 class User(AbstractUser):
-    image = models.ImageField(upload_to='users_image',blank=True)
+    image = models.ImageField(upload_to='users_image',blank=True, max_length=250)
     age  = models.PositiveIntegerField(default=18)
     activation_key = models.CharField(max_length=128,**NULL_INSTALL)
     activation_key_created = models.DateTimeField(auto_now_add=True,**NULL_INSTALL)

@@ -39,7 +39,10 @@ class RegisterListView(FormView, BaseClassContextMixin):
             if self.send_verify_link(user):
                 messages.success(request, 'Вы успешно зарегистрировались. Ссылка активации отправлена на почту')
             return redirect(self.success_url)
-        return redirect(self.success_url)
+        else:
+            messages.error(request, 'EMail уже существует')
+            return HttpResponseRedirect(reverse('users:register'))
+
     @staticmethod
     def send_verify_link(user):
         verify_link = reverse('users:verify', args=[user.email, user.activation_key])
@@ -56,8 +59,8 @@ class RegisterListView(FormView, BaseClassContextMixin):
                 user.activation_key_created = None
                 user.is_active = True
                 user.save()
-                auth.login(request, user, backend='django.contrib.auth.backends.ModelBackend')
-            return render(request, 'users/verification.html')
+                auth.login(request,user, backend='django.contrib.auth.backends.ModelBackend')
+            return render(request,'users/verification.html')
         except Exception as e:
             return HttpResponseRedirect(reverse('index'))
 

@@ -13,6 +13,7 @@ import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+from django.conf import settings
 from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -75,6 +76,7 @@ TEMPLATES = [
                 'mainapp.context_processors.basket',
                 'social_django.context_processors.backends',
                 'social_django.context_processors.login_redirect',
+                'django.template.context_processors.media',
 
             ],
         },
@@ -102,7 +104,6 @@ DATABASES = {
         'USER': 'postgres',
     }
 }
-
 
 
 # Password validation
@@ -201,6 +202,9 @@ SOCIAL_AUTH_PIPELINE= (
     'social_core.pipeline.user.user_details',
 
 )
+
+
+
 
 
 
