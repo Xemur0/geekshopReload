@@ -7,6 +7,7 @@ from admins.forms import UserAdminRegisterForm, UserAdminProfileForm, CategoryAd
     CategoryAdminProfileForm
 from geekshop.mixin import CustomDispatchMixin
 from mainapp.models import ProductCategory
+from ordersapp.models import Order
 from users.models import User
 from django.shortcuts import render
 
@@ -112,3 +113,16 @@ class CategoryDeleteView(DeleteView):
         self.object = self.get_object()
         self.object.delete()
         return HttpResponseRedirect(self.get_success_url())
+
+
+class OrderView(ListView, CustomDispatchMixin):
+    model = Order
+    template_name = 'admins/admin-order-read.html'
+    context_object_name = 'orders'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(OrderView, self).get_context_data(**kwargs)
+        context['title'] = 'Админка | Работа с заказами'
+        return context
+
+
